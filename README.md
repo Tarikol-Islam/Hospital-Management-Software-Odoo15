@@ -4,4 +4,4 @@ In this project, I am going to learn the Odoo 15 custom moudule building and wit
 
 So, may be not every posible error I face so as also not describe, but it will be a helpfull group of stack with stairstep description.
 
-Thansk!
+Thanks!
