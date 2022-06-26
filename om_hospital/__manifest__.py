@@ -10,8 +10,8 @@
     'website': 'https://www.odoo.com/app/invoicing',
     'depends': [],
     'data': [
-        'views/patient_view.xml',
         'views/menu.xml',
+        'views/patient_view.xml',
 
     ],
     'demo': [],
