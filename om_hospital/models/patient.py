@@ -5,6 +5,6 @@ class HospitalPatient(models.Model):
     _description = "Hospital Patient"
 
     name = fields.Char(string="Patient Name")
-    Age = fields.Integer(string="Patient Age")
+    age = fields.Integer(string="Patient Age")
     gender = fields.Selection([('male','Male'),('female','Female')],string="Gender")
 
