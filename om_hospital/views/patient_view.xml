@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--    Form View for Patient model     -->
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name" type="" />
+                        <field name="age" type="" />
+                    </group>
+                    <group>
+                        <field name="gender" />
+                    </group>
+                </group>
+            </sheet>
+        </field>
+    </record>
+
+    <!--    Action Window for Patient (3rd submenu)-->
 
     <record id="patient_model_action" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <!--    The 3rd Submenu-->
     <menuitem id="menu_hospital_patient"
               name="Patient"
               action="patient_model_action"
