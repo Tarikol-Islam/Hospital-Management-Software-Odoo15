@@ -7,6 +7,15 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name" filter_domain="['|', ('ref', 'ilike', self), ('name', 'ilike', self)]"/>
+                <filter name="filter_male" string="Male" domain="[('gender', '=','male')]"/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=','female')]"/>
+                <!--        For both condition at the same(AND operation) time we use separator tag [<separator/>]        -->
+                <separator/>
+                <filter name="filter_kid" string="Kid" domain="[('age', '&lt;=',5)]"/>
+                <!--                Group by in list/tree view-->
+                <group expand="0" string="Group By">
+                    <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+                </group>
             </search>
         </field>
     </record>
