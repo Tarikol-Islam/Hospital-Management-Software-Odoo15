@@ -12,6 +12,7 @@
                 <!--        For both condition at the same(AND operation) time we use separator tag [<separator/>]        -->
                 <separator/>
                 <filter name="filter_kid" string="Kid" domain="[('age', '&lt;=',5)]"/>
+                <filter name="filter_archive" string="Archived" domain="[('active', '=',False)]"/>
                 <!--                Group by in list/tree view-->
                 <group expand="0" string="Group By">
                     <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
@@ -30,6 +31,7 @@
                 <field name="ref"/>
                 <field name="age"/>
                 <field name="gender"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -51,7 +53,7 @@
                         <group>
                             <field name="age"/>
                             <field name="gender"/>
-
+                            <field name="active" invisible="1"/>
                         </group>
                     </group>
                 </sheet>

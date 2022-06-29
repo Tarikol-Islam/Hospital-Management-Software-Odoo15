@@ -8,4 +8,4 @@ class HospitalPatient(models.Model):
     ref = fields.Char(string="Patient Reference")
     age = fields.Integer(string="Patient Age")
     gender = fields.Selection([('male','Male'),('female','Female')],string="Gender")
-
+    active = fields.Boolean(string="Active", default=True)
