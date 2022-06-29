@@ -67,6 +67,7 @@
         <field name="name">Patient</field>
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_male':True}</field>
     </record>
 
     <!--    The 3rd Submenu-->
