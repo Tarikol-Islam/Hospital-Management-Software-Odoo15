@@ -8,7 +8,7 @@
     'description': """Hospital management system""",
     'category': 'Hospital',
     'website': 'https://www.odoo.com/app/invoicing',
-    'depends': [],
+    'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
