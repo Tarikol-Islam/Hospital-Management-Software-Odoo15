@@ -17,6 +17,9 @@
                 <group expand="0" string="Group By">
                     <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
                 </group>
+                <searchpanel>
+                    <field name="gender" string="Types" enable_counters="1"/>
+                </searchpanel>
             </search>
         </field>
     </record>
@@ -59,8 +62,8 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" group="base.group_user"/>
-                    <field name="activity_ids" />
-                    <field name="message_ids" />
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
                 </div>
             </form>
         </field>
