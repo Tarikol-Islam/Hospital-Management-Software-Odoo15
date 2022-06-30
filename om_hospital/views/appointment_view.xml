@@ -24,6 +24,7 @@
                         <field name="date"/>
                         <field name="booking_date"/>
                         <field name="age"/>
+                        <field name="ref"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
@@ -47,10 +48,10 @@
         </field>
     </record>
 
-    <!--    The 3rd Submenu-->
+    <!--    The 2nd Submenu-->
     <menuitem id="menu_hospital_appointment"
               name="Appointment"
               action="appointment_model_action"
-              parent="menu_hospital_master"
-              sequence="3"/>
+              parent="menu_hospital_root"
+              sequence="1"/>
 </odoo>

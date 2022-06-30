@@ -10,3 +10,8 @@ class HospitalAppointment(models.Model):
     age = fields.Integer(related='patient_id.age')#not editable as its a reference
     date = fields.Datetime(string="Appointment Date")
     booking_date = fields.Date(string="Booking date", default=fields.Date.context_today)
+    ref = fields.Char(string="Reference")
+
+    @api.onchange('patient_id')
+    def onchange_patient_id(self):
+        self.ref = self.patient_id.ref
