@@ -10,6 +10,7 @@
                     <group>
                         <field name="patient_id"/>
                         <field name="date"/>
+                        <field name="booking_date"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">

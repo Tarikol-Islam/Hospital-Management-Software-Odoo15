@@ -8,3 +8,4 @@ class HospitalAppointment(models.Model):
 
     patient_id = fields.Many2one("hospital.patient", string="Patient")
     date = fields.Datetime(string="Appointment Date")
+    booking_date = fields.Date(string="Booking date", default=fields.Date.context_today)
