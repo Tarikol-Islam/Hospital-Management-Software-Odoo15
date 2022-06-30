@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--    Tree View   -->
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="patient_id"/>
+                <field name="date"/>
+                <field name="booking_date"/>
+            </tree>
+        </field>
+    </record>
     <!--    Form View for Patient Model-->
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
@@ -11,6 +23,7 @@
                         <field name="patient_id"/>
                         <field name="date"/>
                         <field name="booking_date"/>
+                        <field name="age"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">

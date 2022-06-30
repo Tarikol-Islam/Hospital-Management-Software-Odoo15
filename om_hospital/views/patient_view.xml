@@ -11,7 +11,7 @@
                 <filter name="filter_female" string="Female" domain="[('gender', '=','female')]"/>
                 <!--        For both condition at the same(AND operation) time we use separator tag [<separator/>]        -->
                 <separator/>
-                <filter name="filter_kid" string="Kid" domain="[('age', '&lt;=',5)]"/>
+                <!--                <filter name="filter_kid" string="Kid" domain="[('age', '&lt;=',5)]"/>-->
                 <filter name="filter_archive" string="Archived" domain="[('active', '=',False)]"/>
                 <!--                Group by in list/tree view-->
                 <group expand="0" string="Group By">
@@ -52,6 +52,7 @@
                         <group>
                             <field name="name"/>
                             <field name="ref"/>
+                            <field name="birthdate"/>
                         </group>
                         <group>
                             <field name="age"/>
