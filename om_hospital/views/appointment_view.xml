@@ -5,10 +5,11 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree create="0" edit="0" delete="0">
+            <tree>
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date"/>
+                <field name="priority"/>
             </tree>
         </field>
     </record>
@@ -19,6 +20,9 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <h1>
+                    <field name="priority" widget="priority"/>
+                    </h1>
                     <group>
                         <field name="patient_id"/>
                         <field name="date"/>

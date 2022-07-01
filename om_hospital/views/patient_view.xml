@@ -45,7 +45,6 @@
         <field name="name">hospital.patient.form</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
-
             <form>
                 <sheet>
                     <group>
