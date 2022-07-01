@@ -24,7 +24,8 @@
                         <field name="date"/>
                         <field name="booking_date"/>
                         <field name="age"/>
-                        <field name="ref" editable="0"/>
+                        <field name="ref"/>
+                        <field name="prescription" placeholder="Enter your Prescription"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
