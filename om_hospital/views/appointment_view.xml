@@ -20,8 +20,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                               statusbar_visible="initiated,processing,done"/>
+                    </header>
                     <h1>
-                    <field name="priority" widget="priority"/>
+                        <field name="priority" widget="priority"/>
                     </h1>
                     <group>
                         <field name="patient_id"/>
