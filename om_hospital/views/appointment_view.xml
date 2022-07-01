@@ -24,7 +24,7 @@
                         <field name="date"/>
                         <field name="booking_date"/>
                         <field name="age"/>
-                        <field name="ref"/>
+                        <field name="ref" editable="0"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
