@@ -9,10 +9,12 @@
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date"/>
-                <field name="priority"/>
+                <field name="priority" widget="badge" decoration-warning="priority == '3'"
+                       decoration-success="priority == '1'" decoration-info="priority == '2'"/>
             </tree>
         </field>
     </record>
+
     <!--    Form View for Patient Model-->
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
@@ -21,19 +23,22 @@
             <form>
                 <sheet>
                     <header>
+                        <field name="priority" widget="priority"/>
                         <field name="state" widget="statusbar" options="{'clickable':'1'}"
                                statusbar_visible="initiated,processing,done"/>
                     </header>
-                    <h1>
-                        <field name="priority" widget="priority"/>
-                    </h1>
+
                     <group>
-                        <field name="patient_id"/>
-                        <field name="date"/>
-                        <field name="booking_date"/>
-                        <field name="age"/>
-                        <field name="ref"/>
-                        <field name="prescription" placeholder="Enter your Prescription"/>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="date"/>
+                            <field name="booking_date"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="ref"/>
+                            <field name="prescription" placeholder="Enter your Prescription"/>
+                        </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
