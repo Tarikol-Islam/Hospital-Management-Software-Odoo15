@@ -23,7 +23,7 @@
             <form>
                 <sheet>
                     <header>
-                        <field name="priority" widget="priority"/>
+                        <field name="priority" help="Complete the task based on the priority level!!!" widget="priority"/>
                         <field name="state" widget="statusbar" options="{'clickable':'1'}"
                                statusbar_visible="initiated,processing,done"/>
                     </header>
