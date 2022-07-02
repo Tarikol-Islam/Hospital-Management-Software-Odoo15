@@ -5,10 +5,11 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-success="state=='done'" decoration-warning="state=='processing'">
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date"/>
+                <field name="state" invisible="1"/>
                 <field name="priority" widget="badge" decoration-warning="priority == '3'"
                        decoration-success="priority == '1'" decoration-info="priority == '2'"/>
             </tree>
