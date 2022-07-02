@@ -12,6 +12,8 @@
                 <field name="state" invisible="1"/>
                 <field name="priority" widget="badge" decoration-warning="priority == '3'"
                        decoration-success="priority == '1'" decoration-info="priority == '2'"/>
+                <field name="activity_ids" widget="list_activity"/>
+
             </tree>
         </field>
     </record>
@@ -24,7 +26,8 @@
             <form>
                 <sheet>
                     <header>
-                        <field name="priority" help="Complete the task based on the priority level!!!" widget="priority"/>
+                        <field name="priority" help="Complete the task based on the priority level!!!"
+                               widget="priority"/>
                         <field name="state" widget="statusbar" options="{'clickable':'1'}"
                                statusbar_visible="initiated,processing,done"/>
                     </header>
