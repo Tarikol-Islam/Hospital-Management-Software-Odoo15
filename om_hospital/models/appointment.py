@@ -14,6 +14,7 @@ class HospitalAppointment(models.Model):
     booking_date = fields.Date(string="Booking date", default=fields.Date.context_today)
     ref = fields.Char(string="Reference")
     prescription = fields.Html(string="Prescription")
+    pharmacy_ids = fields.One2many("hospital.pharmacy", 'appointment_id', string="Pharmacy")
     priority = fields.Selection(
         [('0', 'Low'),
          ('1', 'Normal'),

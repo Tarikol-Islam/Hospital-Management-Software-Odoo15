@@ -37,8 +37,6 @@
 
                         <field name="priority" help="Complete the task based on the priority level!!!"
                                widget="priority"/>
-
-
                     <group>
                         <group>
                             <field name="patient_id" default_focus="1" required="1"/>
@@ -54,7 +52,13 @@
                     </group>
                     <notebook>
                         <page string="Prescription" name="Prescription">
-                            <field name="prescription" options="{'collaborative':true,'resizable':true}"/>
+                            <field name="pharmacy_ids">
+                                <tree editable="1">
+                                    <field name="name" />
+                                    <field name="power" />
+                                    <field name="times" />
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
