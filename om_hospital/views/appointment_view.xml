@@ -26,10 +26,11 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="action_processing" string="Process" type="object" states="initiated" />
-                <button name="action_done" string="Mark as done" type="object" states="processing"/>
-                <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"/>
-                <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                <button name="action_processing" string="Process" type="object" states="initiated" data-hotkey="P"/>
+                <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
+                <button name="action_cancel" string="Cancel" type="object" states="initiated,processing" data-hotkey="c"/>
+                <!--options="{'clickable':'1'}"-->
+                    <field name="state" widget="statusbar"
                                statusbar_visible="initiated,processing,done"/>
                     </header>
                 <sheet>
@@ -40,7 +41,7 @@
 
                     <group>
                         <group>
-                            <field name="patient_id" default_focus="1"/>
+                            <field name="patient_id" default_focus="1" required="1"/>
                             <field name="date"/>
                             <field name="booking_date"/>
                             <field name="age"/>
