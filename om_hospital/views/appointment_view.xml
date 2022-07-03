@@ -5,7 +5,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='done'" decoration-warning="state=='processing'">
+            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1">
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date" optional="show"/>
