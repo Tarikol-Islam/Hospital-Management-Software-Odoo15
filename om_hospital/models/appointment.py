@@ -8,6 +8,7 @@ class HospitalAppointment(models.Model):
     _rec_name = "patient_id"  # Where 'name' is not a field for the model, then it will works
 
     patient_id = fields.Many2one("hospital.patient", string="Patient")
+    doctor_id = fields.Many2one("res.users", string="Doctor")
     age = fields.Integer(related='patient_id.age')  # not editable as its a reference
     date = fields.Datetime(string="Appointment Date")
     booking_date = fields.Date(string="Booking date", default=fields.Date.context_today)

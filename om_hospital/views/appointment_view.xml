@@ -8,8 +8,9 @@
             <tree decoration-success="state=='done'" decoration-warning="state=='processing'">
                 <field name="patient_id"/>
                 <field name="date"/>
-                <field name="booking_date"/>
-                <field name="state" invisible="1"/>
+                <field name="booking_date" optional="show"/>
+                <field name="state" optional="hide"/>
+                <field name="doctor_id" optional="hide" widget="many2one_avatar_user"/>
                 <field name="priority" widget="badge" decoration-warning="priority == '3'"
                        decoration-success="priority == '1'" decoration-info="priority == '2'"/>
                 <field name="activity_ids" widget="list_activity"/>
@@ -41,6 +42,7 @@
                         </group>
                         <group>
                             <field name="ref"/>
+                            <field name="doctor_id"/>
                             <field name="prescription" placeholder="Enter your Prescription"/>
                         </group>
                     </group>
