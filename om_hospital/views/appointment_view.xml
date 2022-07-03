@@ -5,7 +5,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1">
+            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1" multi_edit="1">
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date" optional="show"/>
@@ -43,10 +43,10 @@
                         <group>
                             <field name="ref"/>
                             <field name="doctor_id"/>
-                            <field name="prescription" placeholder="Enter your Prescription" />
+                            <field name="prescription" placeholder="Enter your Prescription"/>
                         </group>
                     </group>
-                    <notebook >
+                    <notebook>
                         <page string="Prescription" name="Prescription">
                             <field name="prescription" options="{'collaborative':true,'resizable':true}"/>
                         </page>
