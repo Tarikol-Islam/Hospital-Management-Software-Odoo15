@@ -64,7 +64,9 @@
                             <!--                            We can add here field like we do inside the group-->
                             <field name="gender" string="Gender"/>
                         </page>
-                        <page string="Pharmacy" name="pharmacy"></page>
+                        <page string="Pharmacy" name="pharmacy" >
+                            <field string="Reference" name="ref" />
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
