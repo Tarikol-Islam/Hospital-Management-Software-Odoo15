@@ -25,13 +25,18 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
-                    <header>
-                        <field name="priority" help="Complete the task based on the priority level!!!"
-                               widget="priority"/>
-                        <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                <header>
+                <button name="action_processing" string="Process" type="object" states="initiated" />
+                <button name="action_done" string="Mark as done" type="object" states="processing"/>
+                <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"/>
+                <field name="state" widget="statusbar" options="{'clickable':'1'}"
                                statusbar_visible="initiated,processing,done"/>
                     </header>
+                <sheet>
+
+                        <field name="priority" help="Complete the task based on the priority level!!!"
+                               widget="priority"/>
+
 
                     <group>
                         <group>
