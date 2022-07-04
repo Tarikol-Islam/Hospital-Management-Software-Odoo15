@@ -48,7 +48,7 @@
                             <field name="ref"/>
                             <field name="doctor_id"/>
                             <field name="prescription" placeholder="Enter your Prescription"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field':'int_color'}"/>
                         </group>
                     </group>
                     <notebook>
@@ -57,7 +57,7 @@
                                 <tree editable="1">
                                     <field name="name" />
                                     <field name="power" optional="1"/>
-                                    <field name="color" widget="color_picker" />
+                                    <field name="int_color" widget="color_picker" />
                                     <field name="hex_color" widget="color" groups="base.group_no_one"/>
                                     <field name="times" />
                                 </tree>
