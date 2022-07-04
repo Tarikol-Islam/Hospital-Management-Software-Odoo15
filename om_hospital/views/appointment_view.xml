@@ -46,9 +46,9 @@
                 <header>
                     <button name="action_processing" string="Process" type="object" states="initiated" data-hotkey="P"/>
                     <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
-                    <button name="%(action_appointment_cancel)d" string="Cancel" type="action" states="initiated,processing"/>
-<!--                    <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"-->
-<!--                            data-hotkey="c"/>-->
+<!--                    <button name="%(action_appointment_cancel)d" string="Cancel" type="action" states="initiated,processing"/>-->
+                    <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"
+                            data-hotkey="c"/>
                     <!--options="{'clickable':'1'}"-->
                     <field name="state" widget="statusbar"
                            statusbar_visible="initiated,processing,done"/>
