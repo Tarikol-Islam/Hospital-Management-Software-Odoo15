@@ -48,6 +48,7 @@
                             <field name="ref"/>
                             <field name="doctor_id"/>
                             <field name="prescription" placeholder="Enter your Prescription"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                     <notebook>
