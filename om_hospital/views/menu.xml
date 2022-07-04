@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Top menu item -->
-    <menuitem id="menu_hospital_root" web_icon="om_hospital,static/description/icon.png" name="Hospital" action="" sequence="0" groups=""/>
-    <menuitem id="menu_hospital_master" parent="menu_hospital_root" name="Patient Details" action="" sequence="0"
+    <menuitem id="menu_hospital_root"
+              web_icon="om_hospital,static/description/icon.png"
+              name="Hospital"
+              action=""
+              sequence="0" groups=""/>
+
+    <menuitem id="menu_hospital_master"
+              parent="menu_hospital_root"
+              name="Patient Details"
+              action=""
+              sequence="0"
               groups=""/>
+
+    <menuitem id="menu_hospital_appointment_master"
+              name="Appointment"
+              action=""
+              parent="menu_hospital_root"
+              sequence="1"/>
+
+    <menuitem id="menu_hospital_appointment_cancel"
+              name="Cancellation"
+              action="action_appointment_cancel"
+              parent="menu_hospital_appointment_master"
+              sequence="2"/>
 </odoo>

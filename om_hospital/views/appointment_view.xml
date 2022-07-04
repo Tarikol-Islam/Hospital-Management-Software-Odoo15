@@ -71,7 +71,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Prescription" name="Prescription">
+                        <page string="Pharmacy" name="Pharmacy">
                             <field name="pharmacy_ids">
                                 <tree editable="1">
                                     <field name="name"/>
@@ -81,6 +81,9 @@
                                     <field name="times"/>
                                 </tree>
                             </field>
+                        </page>
+                        <page string="Prescription" name="prescription">
+                            <field name="prescription" options="{'collaborative':true, 'resizable':true, 'codeview':true}"/>
                         </page>
                     </notebook>
                 </sheet>
@@ -109,6 +112,6 @@
     <menuitem id="menu_hospital_appointment"
               name="Appointment"
               action="appointment_model_action"
-              parent="menu_hospital_root"
+              parent="menu_hospital_appointment_master"
               sequence="1"/>
 </odoo>

@@ -11,6 +11,7 @@
     'depends': ['mail'],
     'data': [
         'security/ir.model.access.csv',
+        'wizard/appointment_cancel_view.xml',
         'views/menu.xml',
         'views/patient_view.xml',
         'views/female_patient_view.xml',
