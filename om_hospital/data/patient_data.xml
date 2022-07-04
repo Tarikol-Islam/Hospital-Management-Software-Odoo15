@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="patient_1" model="hospital.patient">
+        <field name="name">Arafat Ratul</field>
+        <field name="age">40</field>
+        <field name="gender">male</field>
+    </record>
+    <record id="patient_2" model="hospital.patient">
+        <field name="name">Siam Ahamed</field>
+        <field name="age">20</field>
+        <field name="gender">male</field>
+    </record>
+    <record id="patient_3" model="hospital.patient">
+        <field name="name">Sarita hossen</field>
+        <field name="age">23</field>
+        <field name="gender">female</field>
+    </record>
+    <record id="patient_4" model="hospital.patient">
+        <field name="name">Urmi hassan</field>
+        <field name="age">23</field>
+        <field name="gender">female</field>
+    </record>
+
+</odoo>
