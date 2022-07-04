@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!--    Activity View   -->
+    <record id="view_hospital_appointment_activity" model="ir.ui.view">
+        <field name="name">hospital.appointment.activity</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <activity string="Appointments">
+
+                <templates>
+                    <img t-attr-src="activity_image('hospital.patient','image',record.patient_id.raw_value)"
+                     role="img" t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
+                    <div t-name="activity-box">
+                            <field name="patient_id"/>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
     <!--    Tree View   -->
     <record id="view_hospital_appointment_tree" model="ir.ui.view">
         <field name="name">hospital.appointment.tree</field>
@@ -26,17 +44,18 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="action_processing" string="Process" type="object" states="initiated" data-hotkey="P"/>
-                <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
-                <button name="action_cancel" string="Cancel" type="object" states="initiated,processing" data-hotkey="c"/>
-                <!--options="{'clickable':'1'}"-->
+                    <button name="action_processing" string="Process" type="object" states="initiated" data-hotkey="P"/>
+                    <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
+                    <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"
+                            data-hotkey="c"/>
+                    <!--options="{'clickable':'1'}"-->
                     <field name="state" widget="statusbar"
-                               statusbar_visible="initiated,processing,done"/>
-                    </header>
+                           statusbar_visible="initiated,processing,done"/>
+                </header>
                 <sheet>
 
-                        <field name="priority" help="Complete the task based on the priority level!!!"
-                               widget="priority"/>
+                    <field name="priority" help="Complete the task based on the priority level!!!"
+                           widget="priority"/>
                     <group>
                         <group>
                             <field name="patient_id" default_focus="1" required="1"/>
@@ -55,11 +74,11 @@
                         <page string="Prescription" name="Prescription">
                             <field name="pharmacy_ids">
                                 <tree editable="1">
-                                    <field name="name" />
+                                    <field name="name"/>
                                     <field name="power" optional="1"/>
-                                    <field name="int_color" widget="color_picker" />
+                                    <field name="int_color" widget="color_picker"/>
                                     <field name="hex_color" widget="color" groups="base.group_no_one"/>
-                                    <field name="times" />
+                                    <field name="times"/>
                                 </tree>
                             </field>
                         </page>
@@ -78,7 +97,7 @@
     <record id="appointment_model_action" model="ir.actions.act_window">
         <field name="name">Appointments</field>
         <field name="res_model">hospital.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,activity</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smilling_face">
                 Create Your First appointment!!!
