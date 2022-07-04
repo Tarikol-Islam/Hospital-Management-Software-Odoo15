@@ -6,7 +6,7 @@ class AppointmentCancel(models.TransientModel):
     _description = "Appointment Cancel Wizard"
 
     appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
-
+    reason = fields.Text(string="Reason")
 
     def action_cancel(self):
         pass

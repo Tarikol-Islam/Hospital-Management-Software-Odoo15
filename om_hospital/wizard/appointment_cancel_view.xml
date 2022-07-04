@@ -5,7 +5,10 @@
         <field name="model">hospital.appointment.cancel.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <field name="appointment_id"/>
+                <group>
+                <field name="appointment_id" string="Appointment"/>
+                <field name="reason" string="Reason for cancellation"/>
+                </group>
                 <footer>
                     <button name="action_cancel" string="Abort Appointment" type="object" class="btn-danger"
                             data-hotkey="q"/>
