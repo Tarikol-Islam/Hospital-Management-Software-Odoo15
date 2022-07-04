@@ -11,6 +11,7 @@ class HospitalPharmacy(models.Model):
     power = fields.Integer(string="Medicine XP")
     times = fields.Integer(string="Piece Per Day")
     color = fields.Integer(string="Color")
+    hex_    color = fields.Char(string="Color")
     appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
 
 
