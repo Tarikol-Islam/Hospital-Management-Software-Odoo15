@@ -56,6 +56,7 @@
                                 <tree editable="1">
                                     <field name="name" />
                                     <field name="power" optional="1"/>
+                                    <field name="color" widget="color_picker" />
                                     <field name="times" />
                                 </tree>
                             </field>

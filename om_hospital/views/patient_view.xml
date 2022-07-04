@@ -57,8 +57,7 @@
                             <field name="image" widget="image" class="oe_avatar"/>
                             <field name="age"/>
                             <field name="gender"/>
-
-                            <field name="active" invisible="1"/>
+                            <field name="active" optional="hide" widget="boolean_toggle"/>
                         </group>
                     </group>
                     <notebook>
