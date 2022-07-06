@@ -10,6 +10,7 @@ class HospitalPatient(models.Model):
     name = fields.Char(string="Patient Name", tracking=True)
     image = fields.Image(string="Patient Image")
     ref = fields.Char(string="Patient Reference", tracking=True)
+    unique_id = fields.Char(string="Unique ID")
     birthdate = fields.Date(string="Date of Birth")
     age = fields.Integer(string="Patient Age", compute='_compute_age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
@@ -25,7 +26,8 @@ class HospitalPatient(models.Model):
                 rec.age = 0
 
     @api.model
-    def create(self, vals_list):
-        print("Gege:  ", vals_list)
+    def create(self, vals):
         # As vals_liist is a dict here, we can overwrite any key of vals_list here
-        return super(HospitalPatient, self).create(vals_list)
+        vals['unique_id'] = self.env['ir.sequence'].next_by_code('hospital.patient')
+        vals['ref'] = self.env.user.id
+        return super(HospitalPatient, self).create(vals)
