@@ -31,3 +31,8 @@ class HospitalPatient(models.Model):
         vals['unique_id'] = self.env['ir.sequence'].next_by_code('hospital.patient')
         vals['ref'] = self.env.user.id
         return super(HospitalPatient, self).create(vals)
+
+    def write(self, vals):
+        if not self.unique_id:
+            vals['unique_id'] = self.env['ir.sequence'].next_by_code('hospital.patient')
+        super(HospitalPatient, self).write(vals)
