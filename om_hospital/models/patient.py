@@ -23,3 +23,9 @@ class HospitalPatient(models.Model):
                 rec.age = today.year - rec.birthdate.year
             else:
                 rec.age = 0
+
+    @api.model
+    def create(self, vals_list):
+        print("Gege:  ", vals_list)
+        # As vals_liist is a dict here, we can overwrite any key of vals_list here
+        return super(HospitalPatient, self).create(vals_list)
