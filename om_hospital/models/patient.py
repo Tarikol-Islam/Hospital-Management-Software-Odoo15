@@ -36,3 +36,6 @@ class HospitalPatient(models.Model):
         if not self.unique_id:
             vals['unique_id'] = self.env['ir.sequence'].next_by_code('hospital.patient')
         super(HospitalPatient, self).write(vals)
+
+    def name_get(self):
+        return [(record.id, "%s:%s" % (record.unique_id, record.name)) for record in self]
