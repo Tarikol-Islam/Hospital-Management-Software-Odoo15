@@ -9,7 +9,7 @@ class HospitalAppointment(models.Model):
 
     patient_id = fields.Many2one("hospital.patient", string="Patient")
     doctor_id = fields.Many2one("res.users", string="Doctor")
-    age = fields.Integer(related='patient_id.age')  # not editable as its a reference
+    age = fields.Integer(related='patient_id.age')  # not editable as it's a reference
     date = fields.Datetime(string="Appointment Date")
     booking_date = fields.Date(string="Booking date", default=fields.Date.context_today)
     ref = fields.Char(string="Reference")
