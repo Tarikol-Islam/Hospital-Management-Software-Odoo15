@@ -25,4 +25,6 @@
               action="action_appointment_cancel"
               parent="menu_hospital_appointment_master"
               sequence="2"/>
+
+
 </odoo>

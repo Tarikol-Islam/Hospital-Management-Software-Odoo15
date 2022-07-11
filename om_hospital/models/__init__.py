@@ -1,2 +1,1 @@
-from . import patient
-from . import appointment, pharmacy
+from . import patient, appointment, pharmacy, odoo_playground

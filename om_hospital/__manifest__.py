@@ -19,6 +19,7 @@
         'views/patient_view.xml',
         'views/female_patient_view.xml',
         'views/appointment_view.xml',
+        'views/odoo_playground_view.xml'
     ],
     'demo': [],
     'installable': True,
