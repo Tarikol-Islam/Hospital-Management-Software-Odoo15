@@ -48,7 +48,7 @@
                     <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
                     <!--                    <button name="%(action_appointment_cancel)d" string="Cancel" type="action" states="initiated,processing"/>-->
                     <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"
-                            context="{'default_appointment_id':active_id}"
+                            context="{'default_appointment_id':active_id,'hide_context_id':1}"
                             data-hotkey="c"/>
                     <!--options="{'clickable':'1'}"-->
                     <field name="state" widget="statusbar"

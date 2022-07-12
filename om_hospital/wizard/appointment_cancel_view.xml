@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                <field name="appointment_id" string="Appointment"/>
+                <field name="appointment_id" string="Appointment" invisible="context.get('hide_context_id')"/>
                 <field name="reason" string="Reason for cancellation"/>
                 </group>
                 <footer>
