@@ -9,9 +9,9 @@
 
                 <templates>
                     <img t-attr-src="activity_image('hospital.patient','image',record.patient_id.raw_value)"
-                     role="img" t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
+                         role="img" t-att-title="record.patient_id.value" t-att-alt="record.patient_id.value"/>
                     <div t-name="activity-box">
-                            <field name="patient_id"/>
+                        <field name="patient_id"/>
                     </div>
                 </templates>
             </activity>
@@ -46,15 +46,20 @@
                 <header>
                     <button name="action_processing" string="Process" type="object" states="initiated" data-hotkey="P"/>
                     <button name="action_done" string="Mark as done" type="object" states="processing" data-hotkey="D"/>
-<!--                    <button name="%(action_appointment_cancel)d" string="Cancel" type="action" states="initiated,processing"/>-->
+                    <!--                    <button name="%(action_appointment_cancel)d" string="Cancel" type="action" states="initiated,processing"/>-->
                     <button name="action_cancel" string="Cancel" type="object" states="initiated,processing"
+                            context="{'default_appointment_id':active_id}"
                             data-hotkey="c"/>
                     <!--options="{'clickable':'1'}"-->
                     <field name="state" widget="statusbar"
                            statusbar_visible="initiated,processing,done"/>
                 </header>
                 <sheet>
-
+                    <div class="oe_title">
+                        <h1>
+                            <field name="appointment_id" read_only="1"/>
+                        </h1>
+                    </div>
                     <field name="priority" help="Complete the task based on the priority level!!!"
                            widget="priority"/>
                     <group>
@@ -84,7 +89,8 @@
                             </field>
                         </page>
                         <page string="Prescription" name="prescription">
-                            <field name="prescription" options="{'collaborative':true, 'resizable':true, 'codeview':true}"/>
+                            <field name="prescription"
+                                   options="{'collaborative':true, 'resizable':true, 'codeview':true}"/>
                         </page>
                     </notebook>
                 </sheet>

@@ -5,9 +5,10 @@ class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Hospital Appointment"
-    _rec_name = "patient_id"  # Where 'name' is not a field for the model, then it will works
+    _rec_name = "appointment_id"  # Where 'name' is not a field for the model, then it will works
 
     patient_id = fields.Many2one("hospital.patient", string="Patient")
+    appointment_id = fields.Char(string="Unique ID")
     doctor_id = fields.Many2one("res.users", string="Doctor")
     age = fields.Integer(related='patient_id.age')  # not editable as it's a reference
     date = fields.Datetime(string="Appointment Date")
@@ -26,6 +27,11 @@ class HospitalAppointment(models.Model):
          ('processing', 'Processing'),
          ('done', 'Done'),
          ('cancelled', 'Cancelled')], default="initiated", string="Status")
+
+    @api.model
+    def create(self, vals_list):
+        vals_list['appointment_id'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
+        return super(HospitalAppointment, self).create(vals_list)
 
     @api.onchange('patient_id')
     def onchange_patient_id(self):

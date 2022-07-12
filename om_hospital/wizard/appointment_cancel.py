@@ -8,6 +8,7 @@ class AppointmentCancel(models.TransientModel):
     @api.model
     def default_get(self, fields_list):
         res = super(AppointmentCancel, self).default_get(fields_list)
+        res['appointment_id'] = self.env.context.get('active_id')
         res['reason'] = "Test Reason"
         return res
 
