@@ -1,5 +1,5 @@
-from odoo import api, models, fields
-
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 class AppointmentCancel(models.TransientModel):
     _name = "hospital.appointment.cancel.wizard"
@@ -16,4 +16,6 @@ class AppointmentCancel(models.TransientModel):
     reason = fields.Text(string="Reason")
 
     def action_cancel(self):
-        pass
+        if self.appointment_id.date.date() == fields.Date.today():
+            raise ValidationError("Sorry!!!\nYou can't cancel an appointment at the meeting date!!!")
+        return
