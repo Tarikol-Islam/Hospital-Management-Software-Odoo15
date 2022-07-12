@@ -12,7 +12,7 @@ class AppointmentCancel(models.TransientModel):
         res['reason'] = "Test Reason"
         return res
 
-    appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
+    appointment_id = fields.Many2one("hospital.appointment", string="Appointment", domain=['|',('state','=','initiated'),('priority','in',('0','1',False))])
     reason = fields.Text(string="Reason")
 
     def action_cancel(self):
