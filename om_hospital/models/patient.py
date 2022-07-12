@@ -1,6 +1,6 @@
-from odoo import api, models, fields
+from odoo import api, models, fields, _
 from datetime import date
-
+from odoo.exceptions import ValidationError
 
 class HospitalPatient(models.Model):
     _name = "hospital.patient"
@@ -15,6 +15,12 @@ class HospitalPatient(models.Model):
     age = fields.Integer(string="Patient Age", compute='_compute_age')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
+
+    @api.constrains('birthdate')
+    def _check_birthdate(self):
+        for rec in self:
+            if rec.birthdate and rec.birthdate>fields.Date.today():
+                raise ValidationError(_("Birthdate can't be tomorrow or more!!!"))
 
     @api.depends('birthdate')
     def _compute_age(self):
