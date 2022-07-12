@@ -109,7 +109,7 @@
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">tree,form,activity</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smilling_face">
+            <p class="o_view_nocontent_smiling_face">
                 Create Your First appointment!!!
             </p>
         </field>

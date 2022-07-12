@@ -14,5 +14,8 @@ class HospitalPharmacy(models.Model):
     hex_color = fields.Char(string="Color")
     appointment_id = fields.Many2one("hospital.appointment", string="Appointment")
 
-
-
+    _sql_constraints = [
+        ('check_times', 'check(times > 0)',
+         'You have to take medicine at least one time a day!'),
+        ('unique_name', 'unique(name)', "You can't create a tag two or more time")
+    ]
