@@ -12,7 +12,7 @@ class HospitalPatient(models.Model):
     ref = fields.Char(string="Patient Reference", tracking=True)
     unique_id = fields.Char(string="Unique ID")
     birthdate = fields.Date(string="Date of Birth")
-    age = fields.Integer(string="Patient Age", compute='_compute_age')
+    age = fields.Integer(string="Patient Age", compute='_compute_age', store=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
 

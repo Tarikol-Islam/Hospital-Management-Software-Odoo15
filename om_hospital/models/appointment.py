@@ -6,7 +6,7 @@ class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Hospital Appointment"
-    _rec_name = "appointment_id"  # Where 'name' is not a field for the model, then it will works
+    _rec_name = "appointment_id"  # Where 'name' is not a field for the model, then it will work
 
     patient_id = fields.Many2one("hospital.patient", string="Patient")
     appointment_id = fields.Char(string="Unique ID")
