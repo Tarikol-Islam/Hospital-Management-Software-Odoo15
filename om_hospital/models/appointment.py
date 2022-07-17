@@ -1,4 +1,5 @@
-from odoo import api, models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 
 class HospitalAppointment(models.Model):
@@ -28,8 +29,6 @@ class HospitalAppointment(models.Model):
          ('done', 'Done'),
          ('cancelled', 'Cancelled')], default="initiated", string="Status")
 
-
-
     @api.model
     def create(self, vals_list):
         vals_list['appointment_id'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
@@ -50,3 +49,8 @@ class HospitalAppointment(models.Model):
     def action_cancel(self):
         action = self.env.ref('om_hospital.action_appointment_cancel').read()[0]
         return action
+
+    def unlink(self):
+        if self.state != 'initiated':
+            raise ValidationError(_("Warning!!!\nYou are not allowed to delete this record!!!"))
+        return super(HospitalAppointment, self).unlink()
