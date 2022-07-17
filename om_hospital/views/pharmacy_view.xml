@@ -13,6 +13,7 @@
                         <field name="times" />
                         <field name="int_color" />
                         <field name="hex_color" />
+                        <field name="active" />
                     </group>
                 </sheet>
             </form>
