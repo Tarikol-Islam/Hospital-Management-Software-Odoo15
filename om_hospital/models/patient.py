@@ -17,12 +17,11 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
     appointments_count = fields.Integer(string="Total appointments", compute="_compute_appointment_count", store=True)
-    appointments_count_dependency_model = fields.One2many('hospital.appointment','patient_id',string="Patient Appointment")
 
-    @api.depends('appointments_count_dependency_model') # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
+    # @api.depends('') # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
     def _compute_appointment_count(self):
         for rec in self:
-            rec.appointments_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.ids)])
+            rec.appointments_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
 
     @api.constrains('birthdate')
     def _check_birthdate(self):
