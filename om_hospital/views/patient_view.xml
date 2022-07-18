@@ -47,12 +47,21 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_title">
+                        <h4>
+                            <field name="unique_id" readonly="1"/>
+                        </h4>
+                        <h2>
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name"/>
+                        </h2>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
+
                             <field name="ref" readonly="1"/>
                             <field name="birthdate"/>
-                            <field name="unique_id" readonly="1"/>
+
                             <field name="appointments_count" />
                         </group>
                         <group>
