@@ -53,6 +53,7 @@
                             <field name="ref" readonly="1"/>
                             <field name="birthdate"/>
                             <field name="unique_id" readonly="1"/>
+                            <field name="appointments_count" />
                         </group>
                         <group>
                             <field name="image" widget="image" class="oe_avatar"/>
@@ -60,6 +61,7 @@
                             <field name="gender"/>
                             <field name="active" optional="hide" widget="boolean_toggle"/>
                         </group>
+
                     </group>
                     <notebook>
                         <page string="Prescription" name="prescription">

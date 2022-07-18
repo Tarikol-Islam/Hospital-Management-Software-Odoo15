@@ -2,6 +2,7 @@ from odoo import api, models, fields, _
 from datetime import date
 from odoo.exceptions import ValidationError
 
+
 class HospitalPatient(models.Model):
     _name = "hospital.patient"
     _inherit = ["mail.thread", "mail.activity.mixin"]
@@ -15,11 +16,17 @@ class HospitalPatient(models.Model):
     age = fields.Integer(string="Patient Age", compute='_compute_age', store=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
+    appointments_count = fields.Integer(string="Total appointments", compute="_compute_appointment_count", store=True)
+
+    # @api.depends('') # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
+    def _compute_appointment_count(self):
+        for rec in self:
+            rec.appointments_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.id)])
 
     @api.constrains('birthdate')
     def _check_birthdate(self):
         for rec in self:
-            if rec.birthdate and rec.birthdate>fields.Date.today():
+            if rec.birthdate and rec.birthdate > fields.Date.today():
                 raise ValidationError(_("Birthdate can't be tomorrow or more!!!"))
 
     @api.depends('birthdate')
