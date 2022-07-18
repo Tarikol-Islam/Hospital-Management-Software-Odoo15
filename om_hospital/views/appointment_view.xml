@@ -23,7 +23,7 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1" multi_edit="1">
+            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1" multi_edit="1" export_xlsx="0">
                 <field name="patient_id"/>
                 <field name="date"/>
                 <field name="booking_date" optional="show"/>
