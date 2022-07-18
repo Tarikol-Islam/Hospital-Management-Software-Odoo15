@@ -8,7 +8,7 @@ class HospitalAppointment(models.Model):
     _description = "Hospital Appointment"
     _rec_name = "appointment_id"  # Where 'name' is not a field for the model, then it will work
 
-    patient_id = fields.Many2one("hospital.patient", string="Patient")
+    patient_id = fields.Many2one("hospital.patient", string="Patient", ondelete='restrict')
     appointment_id = fields.Char(string="Unique ID")
     doctor_id = fields.Many2one("res.users", string="Doctor")
     age = fields.Integer(related='patient_id.age')  # not editable as it's a reference
