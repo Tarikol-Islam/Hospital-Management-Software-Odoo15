@@ -35,7 +35,9 @@
                 <field name="priority" widget="badge" decoration-warning="priority == '3'"
                        decoration-success="priority == '1'" decoration-info="priority == '2'"/>
                 <field name="activity_ids" widget="list_activity"/>
-
+                <button class="fa fa-paper-plane btn-warning" attrs="{'invisible':[('state','!=','initiated')]}" type="object" name="action_processing" />
+                <button class="fa fa-check btn-success" help="click to complete the process" attrs="{'invisible':[('state','!=','processing')]}" type="object" name="action_done" />
+                <button class="fa fa-times btn-danger" attrs="{'invisible':[('state','!=','initiated')]}" type="action" name="%(om_hospital.action_appointment_cancel)d" />
             </tree>
         </field>
     </record>
@@ -60,7 +62,7 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="appointment_id" read_only="1"/>
+                            <field name="appointment_id" read_only="1" class="oe_read_only"/>
                         </h1>
                     </div>
                     <field name="priority" help="Complete the task based on the priority level!!!"

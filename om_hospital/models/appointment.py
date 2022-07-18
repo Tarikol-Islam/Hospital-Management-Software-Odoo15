@@ -40,11 +40,11 @@ class HospitalAppointment(models.Model):
 
     def action_done(self):
         for rec in self:
-            rec.state = "done"
+            if rec.state == "processing": rec.state = "done"
 
     def action_processing(self):
         for rec in self:
-            if rec.state=="initiated":rec.state = "processing"
+            if rec.state == "initiated": rec.state = "processing"
 
     def action_cancel(self):
         action = self.env.ref('om_hospital.action_appointment_cancel').read()[0]
