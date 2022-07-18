@@ -61,6 +61,11 @@
                             <field name="gender"/>
                             <field name="active" optional="hide" widget="boolean_toggle"/>
                         </group>
+                        <group string="Additional Information">
+                            <field name="parent_name" attrs="{'invisible': [('age','>',18)]}" />
+                            <field name="marital_status" />
+                            <field name="partner_name" attrs="{'invisible':[('marital_status','=','single')]}"/>
+                        </group>
 
                     </group>
                     <notebook>

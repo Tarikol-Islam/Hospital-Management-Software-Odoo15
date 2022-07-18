@@ -19,6 +19,9 @@ class HospitalPatient(models.Model):
     appointments_count = fields.Integer(string="Total appointments", compute="_compute_appointment_count", store=True)
     appointments_count_dependency_model = fields.One2many('hospital.appointment','patient_id',string="Patient Appointment")
 
+    parent_name = fields.Char(string="Parent name")
+    marital_status = fields.Selection([('single','Single'),('married','Married')])
+    partner_name = fields.Char(string="Partner name")
     @api.depends('appointments_count_dependency_model') # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
     def _compute_appointment_count(self):
         for rec in self:
