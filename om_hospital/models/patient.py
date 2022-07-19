@@ -33,6 +33,12 @@ class HospitalPatient(models.Model):
             if rec.birthdate and rec.birthdate > fields.Date.today():
                 raise ValidationError(_("Birthdate can't be tomorrow or more!!!"))
 
+    @api.ondelete(at_uninstall=False)
+    def _check_patient_appointment(self):
+        for rec in self:
+            if rec.appointments_count_dependency_model:
+                raise ValidationError(_("You can't delete a patient with appointment!!!"))
+
     @api.depends('birthdate')
     def _compute_age(self):
         today = date.today()
