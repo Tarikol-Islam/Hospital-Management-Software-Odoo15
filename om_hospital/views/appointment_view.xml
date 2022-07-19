@@ -38,6 +38,9 @@
                 <button class="fa fa-paper-plane btn-warning" attrs="{'invisible':[('state','!=','initiated')]}" type="object" name="action_processing" />
                 <button class="fa fa-check btn-success" help="click to complete the process" attrs="{'invisible':[('state','!=','processing')]}" type="object" name="action_done" />
                 <button class="fa fa-times btn-danger" attrs="{'invisible':[('state','!=','initiated')]}" type="action" name="%(om_hospital.action_appointment_cancel)d" />
+                <groupby name="patient_id">
+                    <button name="edit" type="edit" string="Edit"/>
+                </groupby>
             </tree>
         </field>
     </record>

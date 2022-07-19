@@ -17,12 +17,15 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
     appointments_count = fields.Integer(string="Total appointments", compute="_compute_appointment_count", store=True)
-    appointments_count_dependency_model = fields.One2many('hospital.appointment','patient_id',string="Patient Appointment")
+    appointments_count_dependency_model = fields.One2many('hospital.appointment', 'patient_id',
+                                                          string="Patient Appointment")
 
     parent_name = fields.Char(string="Parent name")
-    marital_status = fields.Selection([('single','Single'),('married','Married')])
+    marital_status = fields.Selection([('single', 'Single'), ('married', 'Married')])
     partner_name = fields.Char(string="Partner name")
-    @api.depends('appointments_count_dependency_model') # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
+
+    @api.depends(
+        'appointments_count_dependency_model')  # if appointment_count does not change for any change in appointment record that time we should give new field as dependency
     def _compute_appointment_count(self):
         for rec in self:
             rec.appointments_count = self.env['hospital.appointment'].search_count([('patient_id', '=', rec.ids)])
@@ -33,7 +36,7 @@ class HospitalPatient(models.Model):
             if rec.birthdate and rec.birthdate > fields.Date.today():
                 raise ValidationError(_("Birthdate can't be tomorrow or more!!!"))
 
-    @api.ondelete(at_uninstall=False)
+    @api.ondelete(at_uninstall=False)  # We can't even uninstall the model if at_uninstall=False here
     def _check_patient_appointment(self):
         for rec in self:
             if rec.appointments_count_dependency_model:
