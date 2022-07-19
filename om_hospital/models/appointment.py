@@ -54,3 +54,4 @@ class HospitalAppointment(models.Model):
         if self.state != 'initiated':
             raise ValidationError(_("Warning!!!\nYou are not allowed to delete this record!!!"))
         return super(HospitalAppointment, self).unlink()
+

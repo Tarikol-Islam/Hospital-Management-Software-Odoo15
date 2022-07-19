@@ -65,3 +65,7 @@ class HospitalPatient(models.Model):
 
     def name_get(self):
         return [(record.id, "%s:%s" % (record.unique_id, record.name)) for record in self]
+
+#     Group By Button test part
+    def action_groupby_button_test(self):
+        print("Clicked the button is successful")
