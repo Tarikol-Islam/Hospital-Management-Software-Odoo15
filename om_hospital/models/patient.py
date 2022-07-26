@@ -1,6 +1,7 @@
 from odoo import api, models, fields, _
 from datetime import date
 from odoo.exceptions import ValidationError
+from dateutil import relativedelta
 
 
 class HospitalPatient(models.Model):
@@ -13,7 +14,7 @@ class HospitalPatient(models.Model):
     ref = fields.Char(string="Patient Reference", tracking=True)
     unique_id = fields.Char(string="Unique ID")
     birthdate = fields.Date(string="Date of Birth")
-    age = fields.Integer(string="Patient Age", compute='_compute_age', store=True)
+    age = fields.Integer(string="Patient Age", compute='_compute_age', inverse='_compute_birthdate', store=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     active = fields.Boolean(string="Active", default=True)
     appointments_count = fields.Integer(string="Total appointments", compute="_compute_appointment_count", store=True)
@@ -51,6 +52,13 @@ class HospitalPatient(models.Model):
             else:
                 rec.age = 0
 
+    @api.depends('age')
+    def _compute_birthdate(self):
+        for rec in self:
+            rec.birthdate = date.today() - relativedelta.relativedelta(years=rec.age)
+
+
+
     @api.model
     def create(self, vals):
         # As vals_liist is a dict here, we can overwrite any key of vals_list here
@@ -66,6 +74,6 @@ class HospitalPatient(models.Model):
     def name_get(self):
         return [(record.id, "%s:%s" % (record.unique_id, record.name)) for record in self]
 
-#     Group By Button test part
+    #     Group By Button test part
     def action_groupby_button_test(self):
         print("Clicked the button is successful")
