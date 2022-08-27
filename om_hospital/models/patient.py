@@ -62,8 +62,7 @@ class HospitalPatient(models.Model):
     @api.model
     def create(self, vals):
         # As vals_liist is a dict here, we can overwrite any key of vals_list here
-        vals['unique_id'] = self.env['ir.sequence'].next_by_code('hospital.patient')
-        vals['ref'] = self.env.user.id
+
         return super(HospitalPatient, self).create(vals)
 
     def write(self, vals):
