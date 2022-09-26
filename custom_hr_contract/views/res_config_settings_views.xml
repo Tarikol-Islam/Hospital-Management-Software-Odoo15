@@ -9,7 +9,7 @@
                 <xpath expr="//div[hasclass('settings')]" position="inside">
 
 
-                    <div class="app_settings_block" data-string="Contract" id="hr_contract" string="Contract" data-key="hr.contract">
+                    <div class="app_settings_block" data-string="Contract" id="hr_contract" string="Contract" data-key="custom_hr_contract">
                         <h2>Hr Contract Management</h2>
                         <div class="row mt16 o_settings_container" id="hr_contract_setting">
 
