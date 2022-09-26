@@ -1,6 +1,6 @@
 from odoo import fields, models, api
-from datetime import date
 from dateutil import relativedelta
+from datetime import datetime
 
 
 class InheritedHrEmployee(models.Model):
@@ -32,7 +32,9 @@ class InheritedHrEmployee(models.Model):
                             years=rec.probation_period_id.value)
                         print(rec.joining_date + relativedelta.relativedelta(years=rec.probation_period_id.value))
 
-    def _probation_to_confirmation(self, cr, uid, context=None):
-        print("Here is the cron and uid")
-        print(cr, uid)
-        print(context)
+    @api.model
+    def _cron_probation_to_confirmation(self):
+        TodaySconfirmationEmployees = self.env['hr.employee'].search([('confirmation_date', '=', datetime.now().date()),('employee_type_id.is_probation','=',True)])
+        for rec in TodaySconfirmationEmployees:
+            employee_type = self.env['hr.employee.type'].search([('is_permanent', '=', True)], limit=1)
+            rec.employee_type_id = employee_type.id

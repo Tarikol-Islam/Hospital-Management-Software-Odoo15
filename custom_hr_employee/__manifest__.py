@@ -8,7 +8,7 @@
     'description': """HR Employee""",
     'category': 'Human Resources',
     'depends': [
-        'hr',
+        'hr'
     ],
     'data': [
         'security/ir.model.access.csv',
