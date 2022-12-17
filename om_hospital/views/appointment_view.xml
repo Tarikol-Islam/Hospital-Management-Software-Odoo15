@@ -23,9 +23,10 @@
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1" multi_edit="1" export_xlsx="0">
+            <tree decoration-success="state=='done'" decoration-warning="state=='processing'" sample="1" multi_edit="1"
+                  export_xlsx="0">
                 <header>
-                    <button string="To Process" class="btn-success" type="object" name="action_processing" />
+                    <button string="To Process" class="btn-success" type="object" name="action_processing"/>
                 </header>
                 <field name="patient_id"/>
                 <field name="date"/>
@@ -35,11 +36,14 @@
                 <field name="priority" widget="badge" decoration-warning="priority == '3'"
                        decoration-success="priority == '1'" decoration-info="priority == '2'"/>
                 <field name="activity_ids" widget="list_activity"/>
-                <button class="fa fa-paper-plane btn-warning" attrs="{'invisible':[('state','!=','initiated')]}" type="object" name="action_processing" />
-                <button class="fa fa-check btn-success" help="click to complete the process" attrs="{'invisible':[('state','!=','processing')]}" type="object" name="action_done" />
-                <button class="fa fa-times btn-danger" attrs="{'invisible':[('state','!=','initiated')]}" type="action" name="%(om_hospital.action_appointment_cancel)d" />
+                <button class="fa fa-paper-plane btn-warning" attrs="{'invisible':[('state','!=','initiated')]}"
+                        type="object" name="action_processing"/>
+                <button class="fa fa-check btn-success" help="click to complete the process"
+                        attrs="{'invisible':[('state','!=','processing')]}" type="object" name="action_done"/>
+                <button class="fa fa-times btn-danger" attrs="{'invisible':[('state','!=','initiated')]}" type="action"
+                        name="%(om_hospital.action_appointment_cancel)d"/>
                 <groupby name="patient_id">
-                    <button name="action_groupby_button_test" type="object" string="Test" class="oe_highlight" />
+                    <button name="action_groupby_button_test" type="object" string="Test" class="oe_highlight"/>
                     <button name="edit" type="edit" string="Edit"/>
                 </groupby>
             </tree>
@@ -103,6 +107,7 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!--        adding a chatter in this model        -->
                 <div class="oe_chatter">
                     <field name="message_follower_ids" group="base.group_user"/>
                     <field name="activity_ids"/>
