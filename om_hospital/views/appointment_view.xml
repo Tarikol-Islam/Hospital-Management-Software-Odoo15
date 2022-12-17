@@ -47,6 +47,7 @@
     </record>
 
     <!--    Form View for Patient Model-->
+    <!--    Form View for Patient Model-->
     <record id="view_hospital_appointment_form" model="ir.ui.view">
         <field name="name">hospital.appointment.form</field>
         <field name="model">hospital.appointment</field>
