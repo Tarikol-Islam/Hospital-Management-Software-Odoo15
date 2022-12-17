@@ -126,6 +126,7 @@
     </record>
 
     <!--    The 2nd Submenu-->
+    <!--    The 2nd Submenu-->
     <menuitem id="menu_hospital_appointment"
               name="Appointment"
               action="appointment_model_action"
