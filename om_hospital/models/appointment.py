@@ -29,6 +29,7 @@ class HospitalAppointment(models.Model):
          ('done', 'Done'),
          ('cancelled', 'Cancelled')], default="initiated", string="Status")
 
+    # Nothing is Easy
     @api.model
     def create(self, vals_list):
         vals_list['appointment_id'] = self.env['ir.sequence'].next_by_code('hospital.appointment')
