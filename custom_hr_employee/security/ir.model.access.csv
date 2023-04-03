@@ -1,3 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access.hr.employee.type,access_hr_employee_type,custom_hr_employee.model_hr_employee_type,,1,1,1,1
-access.hr.employee.probation.period.settings,access_hr_employee_probation_period_settings,custom_hr_employee.model_hr_employee_probation_period_settings,,1,1,1,1

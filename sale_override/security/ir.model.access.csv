@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access.sale.order,access_sale_order,sale_override.model_sale_order,base.group.user,1,0,0,0
